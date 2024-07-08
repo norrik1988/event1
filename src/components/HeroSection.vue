@@ -1,0 +1,174 @@
+<!-- src/components/Hero.vue -->
+<template>
+  <div class=" flex grid m-0">
+    <div class="col-9 p-0">
+      <div class="hero">
+        <!-- <p-menubar :model="items" class="flex border-none CustomText bg-black-alpha-90 ">
+          <template #start>
+            <img alt="logo" src="../assets/logo.png" height="32" class="mr-2">
+          </template>
+          <div>dxsds</div>
+        </p-menubar> -->
+
+        <div class="video-background">
+          <!-- Video di sfondo -->
+          <video autoplay loop muted class="fill-width">
+            <source src="../assets/video1.mp4" type="video/mp4" />
+            <!-- Fallback per i browser che non supportano HTML5 video -->
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+    
+        <div class="hero-content">
+          <div class="hero-text p-6">
+            <h1>Welcome to Another Site no.098</h1>
+            <p>read subtitle here ランダムな日本語の書き</p>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+    <div class="flex col-3 p-0">
+
+      <div class="login-form align-content-center">
+        <h2>Login</h2>
+        <div class="p-field">
+          <label for="username" style="margin: 0 16px 0 0;">Username</label>
+          <InputText id="username" v-model="username" />
+        </div>
+        <div class="p-field">
+          <label for="password" style="margin: 0 16px 0 0;">Password</label>
+          <InputText id="password" type="password" v-model="password" />
+        </div>
+        <Button label="Login" icon="pi pi-check" @click="handleLogin" class="bg-primary">va agli eventi</Button>
+        <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
+
+      </div>
+    </div>
+  </div>
+  </template>
+  
+  <script>
+  import { Button } from 'primevue/button';
+
+  export default {
+    components: {
+    Button
+  },
+    data() {
+      return {
+        username: '',
+        password: '',
+        items: [
+          {
+            label: 'Home',
+            icon: 'pi pi-fw pi-home',
+            to: '/'
+          },
+          {
+            label: 'Events',
+            icon: 'pi pi-fw pi-calendar',
+            to: '/events'
+          },
+          {
+            label: 'Add Event',
+            icon: 'pi pi-fw pi-plus',
+            to: '/add-event'
+          }
+        ]
+      };
+    },
+    methods: {
+  handleLogin() {
+    // Logica per il login
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
+
+    // Reindirizza alla lista degli eventi dopo il login
+    this.$router.push('/events'); // Utilizza il percorso corretto definito nelle tue rotte
+  }
+}
+  };
+  </script>
+  
+  <style>
+  .hero {
+    background-image: url('../assets/background1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+  
+  .hero-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 2;
+  }
+  .hero-text {
+    color: white;
+    max-width: 50%;
+    background-color: black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+  }
+  
+  .login-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .login-form h2 {
+    margin-top: 0;
+  }
+  
+  .p-field {
+    margin-bottom: 16px;
+  }
+
+ .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+    color: #ffffff !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover .p-menuitem-link .p-menuitem-text {
+    color: #495057 !important;
+}
+
+.p-menubar {
+    padding: 0.5rem;
+    background: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    padding: 0 0 0 24px;
+}
+  
+  </style>
+  

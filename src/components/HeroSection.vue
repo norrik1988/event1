@@ -94,7 +94,6 @@
   
   <style>
   .hero {
-    background-image: url('../assets/background1.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;

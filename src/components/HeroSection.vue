@@ -104,7 +104,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 70%;
   height: 100%;
   overflow: hidden;
 }
@@ -127,9 +127,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
     z-index: 2;
   }
+
   .hero-text {
     color: white;
     max-width: 50%;

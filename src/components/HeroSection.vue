@@ -1,7 +1,7 @@
 <!-- src/components/Hero.vue -->
 <template>
   <div class=" flex grid m-0">
-    <div class="col-8 p-0">
+    <div class="col-8 p-0 border-1">
       <div class="hero">
         <!-- <p-menubar :model="items" class="flex border-none CustomText bg-black-alpha-90 ">
           <template #start>
@@ -14,7 +14,6 @@
           <!-- Video di sfondo -->
           <video autoplay loop muted class="fill-width">
             <source src="../assets/video1.mp4" type="video/mp4" />
-            <!-- Fallback per i browser che non supportano HTML5 video -->
             Your browser does not support the video tag.
           </video>
         </div>
@@ -29,8 +28,8 @@
         </div>
       </div>
     </div>
-    <div class="col-4 p-0 align-content-center">
-      <div class="mx-6">
+    <div class="col-4 p-0 align-content-center border-1">
+      <div class="mx-8 px-4 card">
         <h2>Login</h2>
         <div class="p-field flex flex-column gap-3">
           <label for="username" style="margin: 0 16px 0 0;">Nickname</label>
@@ -40,10 +39,10 @@
           <label for="password" style="margin: 0 16px 0 0;">Password</label>
           <InputText id="password" type="password" v-model="password" />
         </div>
-        <Button label="Login" icon="pi pi-check" @click="handleLogin" class="bg-primary w-full rounded">Login</Button>
-    </div>
-
+        <Button label="Login" icon="pi pi-check" @click="handleLogin"
+                class="bg-primary border-primary-500 px-3 py-2 text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">Login</Button>
       </div>
+    </div>
   </div>
   </template>
   
@@ -78,12 +77,7 @@
       };
     },
     methods: {
-  handleLogin() {
-
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-
-    
+  handleLogin() { 
     this.$router.push('/events'); 
   }
 }
@@ -102,25 +96,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 66%;
+  width: 69%;
   height: 100%;
   overflow: hidden;
 }
 
-.video-background video {
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 69%;
+    height: 100%;
+    overflow: hidden;
 }
-
   
-  .hero-content {
+.hero-content {
     flex: 1;
     display: flex;
     align-items: center;
@@ -136,19 +126,28 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     position: absolute;
     left: 2%;
-  }
+    z-index: 5;
+    top: 40%;
+}
   
-
+.card {
+    background: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    border-radius: 12px;
+}
   
-  .login-form h2 {
+.login-form h2 {
     margin-top: 0;
   }
   
-  .p-field {
+.p-field {
     margin-bottom: 16px;
   }
 
- .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
     color: #ffffff !important;
 }
 
@@ -165,5 +164,5 @@
     padding: 0 0 0 24px;
 }
   
-  </style>
+</style>
   

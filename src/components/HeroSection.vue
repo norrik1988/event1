@@ -1,7 +1,7 @@
 <!-- src/components/Hero.vue -->
 <template>
   <div class=" flex grid m-0">
-    <div class="col-9 p-0">
+    <div class="col-8 p-0">
       <div class="hero">
         <!-- <p-menubar :model="items" class="flex border-none CustomText bg-black-alpha-90 ">
           <template #start>
@@ -29,23 +29,21 @@
         </div>
       </div>
     </div>
-    <div class="flex col-3 p-0">
-
-      <div class="login-form align-content-center">
+    <div class="col-4 p-0 align-content-center">
+      <div class="mx-6">
         <h2>Login</h2>
-        <div class="p-field">
-          <label for="username" style="margin: 0 16px 0 0;">Username</label>
+        <div class="p-field flex flex-column gap-3">
+          <label for="username" style="margin: 0 16px 0 0;">Nickname</label>
           <InputText id="username" v-model="username" />
         </div>
-        <div class="p-field">
+        <div class="p-field flex flex-column gap-3">
           <label for="password" style="margin: 0 16px 0 0;">Password</label>
           <InputText id="password" type="password" v-model="password" />
         </div>
-        <Button label="Login" icon="pi pi-check" @click="handleLogin" class="bg-primary">va agli eventi</Button>
-        <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
+        <Button label="Login" icon="pi pi-check" @click="handleLogin" class="bg-primary w-full rounded">Login</Button>
+    </div>
 
       </div>
-    </div>
   </div>
   </template>
   
@@ -81,12 +79,12 @@
     },
     methods: {
   handleLogin() {
-    // Logica per il login
+
     console.log('Username:', this.username);
     console.log('Password:', this.password);
 
-    // Reindirizza alla lista degli eventi dopo il login
-    this.$router.push('/events'); // Utilizza il percorso corretto definito nelle tue rotte
+    
+    this.$router.push('/events'); 
   }
 }
   };
@@ -104,7 +102,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 70%;
+  width: 66%;
   height: 100%;
   overflow: hidden;
 }
@@ -134,15 +132,13 @@
     color: white;
     max-width: 50%;
     background-color: black;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 2rem;
+    opacity: 90%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: absolute;
+    left: 2%;
   }
   
-  .login-form {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-  }
+
   
   .login-form h2 {
     margin-top: 0;

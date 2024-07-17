@@ -8,14 +8,20 @@
           {{ participant.name }}
         </li>
       </ul>
+      <ChildComponent :event="event" />
     </div>
+    <button @click="$router.go(-1)">Indietro</button>
   </template>
   
   <script>
   import { ref } from 'vue';
   import { useRoute } from 'vue-router';
+  import ChildComponent from './ChildComponent.vue';
   
   export default {
+    components: {
+    ChildComponent
+  },
     setup() {
       const route = useRoute();
       const event = ref({

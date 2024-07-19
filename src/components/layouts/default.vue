@@ -1,0 +1,3 @@
+<template>
+    <AppLayout></AppLayout>
+</template>

@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="col-offset-1 col-10">
+    <div class="col-8">
       <h1>Eventi</h1>
       <Button label="Aggiungi Evento" icon="pi pi-plus" @click="addEvent" class="mb-3" />
       <div class="p-card">
@@ -15,6 +15,9 @@
           </Column>
         </DataTable>
       </div>
+    </div>
+    <div>
+      <h4 class="col-4 text-100"> cxcxc </h4>
     </div>
   </div>
 </template>

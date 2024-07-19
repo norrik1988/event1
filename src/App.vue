@@ -1,23 +1,10 @@
 <template>
   <div id="app">
-    <!-- Topbar -->
-    <header>
-      <h1>Topbar</h1>
-      <!-- Qui puoi aggiungere altri elementi della topbar come menu, pulsanti, etc. -->
-    </header>
-
-    <!-- Contenuto principale -->
-    <main>
-      <!-- Sidebar -->
-      <aside>
-        <h2>Sidebar</h2>
-        <!-- Qui puoi aggiungere i link della sidebar -->
-        <router-link to="/">Home</router-link>
-        <!-- Aggiungi altri link per le altre rotte del tuo router -->
+    <main class="grid">
+      <aside class="col-2">
+        <Sidebar/>
       </aside>
-
-      <!-- Contenuto dinamico del router -->
-      <section>
+      <section class="col-10">
         <router-view />
       </section>
     </main>
@@ -25,17 +12,24 @@
 </template>
 
 <script>
+import Sidebar from './components/SidebarComponent.vue';
+
+
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Sidebar,
+  },
 }
 </script>
 
 <style>
-/* Stili globali se necessario */
+
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Altezza minima per occupare l'intera altezza della viewport */
+  min-height: 100vh; 
 }
 
 header {
@@ -46,17 +40,11 @@ header {
 
 main {
   display: flex;
-  flex: 1; /* Il contenuto principale (sidebar e router-view) si espande per riempire lo spazio rimanente */
-}
-
-aside {
-  width: 200px; /* Larghezza della sidebar */
-  background-color: #f0f0f0;
-  padding: 10px;
+  flex: 1; 
 }
 
 section {
-  flex: 1; /* Il router-view occupa tutto lo spazio rimanente */
+  flex: 1; 
   padding: 10px;
 }
 </style>
